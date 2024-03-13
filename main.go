@@ -1,34 +1,19 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
+	// Define una lista de números
+	numeros := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 
-	entrada := "España"
-
-	if isValidText(entrada) {
-		fmt.Println("La entrada es válida")
-	} else {
-		fmt.Println("La entrada no es válida")
-	}
-
-}
-
-func isValidText(entrada string) bool {
-	const (
-		a    = '\u0061'
-		b    = '\u007A'
-		A    = '\u0041'
-		Z    = '\u005A'
-		zero = '\u0030'
-		nine = '\u0039'
-	)
-	for _, i := range entrada {
-		if uint32(i) >= a && uint32(i) <= b && uint32(i) >= A && uint32(i) <= Z && uint32(i) >= zero && uint32(i) <= nine {
-			return true
+	// Inicializa una variable para almacenar la suma de los números pares
+	var total int
+	// Itera sobre los números y suma los números pares
+	for i := 0; i < len(numeros); i++ {
+		if numeros[i]%2 == 0 {
+			total += numeros[i]
 		}
 	}
-	return false
+	// Imprime la suma de los números pares
+	fmt.Println(total)
 }
